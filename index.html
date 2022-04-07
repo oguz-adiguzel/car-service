@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Express Service</title>
+    <style>
+        nav{
+            background-color: rgba(0, 0, 0, 0.281);
+            z-index: 1;
+        }
+        .card{
+            background-color: #f8f9fa;
+            transition: .5s;
+        }
+        .card:hover{
+            background-color: #dc3545;
+            transition: .5s;
+        }
+        .services-item1{
+            height: 17rem;
+            width: 23%;
+            background-image:linear-gradient(to right bottom, rgba(0, 0, 0, 0.822), rgba(12, 12, 12, 0.192)), url('./img/services1.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+        }
+        .services-item1:hover{
+            background: rgb(215,156,20);
+            background: linear-gradient(0deg, rgba(215, 156, 20, 0.39), rgba(12, 12, 12, 0.795)), url('./img/services1.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+            
+        }
+        .services-item2{
+            height: 17rem;
+            width: 23%;
+            background-image:linear-gradient(to right bottom, rgba(0, 0, 0, 0.822), rgba(12, 12, 12, 0.192)), url('./img/services2.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .services-item2:hover{
+            background: rgb(215,156,20);
+            background: linear-gradient(0deg, rgba(215, 156, 20, 0.39), rgba(12, 12, 12, 0.795)), url('./img/services2.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+            
+        }
+        .services-item3{
+            height: 17rem;
+            width: 23%;
+            background-image:linear-gradient(to right bottom, rgba(0, 0, 0, 0.822), rgba(12, 12, 12, 0.192)), url('./img/services3.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .services-item3:hover{
+            background: rgb(215,156,20);
+            background: linear-gradient(0deg, rgba(215, 156, 20, 0.39), rgba(12, 12, 12, 0.795)), url('./img/services3.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+            
+        }
+        .services-item4{
+            height: 17rem;
+            width: 23%;
+            background-image:linear-gradient(to right bottom, rgba(0, 0, 0, 0.822), rgba(12, 12, 12, 0.192)), url('./img/services4.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .services-item4:hover{
+            background: rgb(215,156,20);
+            background: linear-gradient(0deg, rgba(215, 156, 20, 0.39), rgba(12, 12, 12, 0.795)), url('./img/services4.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+            
+        }
+        .services-item5{
+            height: 17rem;
+            width: 23%;
+            background-image:linear-gradient(to right bottom, rgba(0, 0, 0, 0.822), rgba(12, 12, 12, 0.192)), url('./img/services5.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .services-item5:hover{
+            background: rgb(215,156,20);
+            background: linear-gradient(0deg, rgba(215, 156, 20, 0.39), rgba(12, 12, 12, 0.795)), url('./img/services5.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+            
+        }
+
+        .services-item6{
+            height: 17rem;
+            width: 23%;
+            background-image:linear-gradient(to right bottom, rgba(0, 0, 0, 0.822), rgba(12, 12, 12, 0.192)), url('./img/services6.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .services-item6:hover{
+            background: rgb(215,156,20);
+            background: linear-gradient(0deg, rgba(215, 156, 20, 0.39), rgba(12, 12, 12, 0.795)), url('./img/services6.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+            
+        }
+        .services-item7{
+            height: 17rem;
+            width: 23%;
+            background-image:linear-gradient(to right bottom, rgba(0, 0, 0, 0.822), rgba(12, 12, 12, 0.192)), url('./img/services7.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .services-item7:hover{
+            background: rgb(215,156,20);
+            background: linear-gradient(0deg, rgba(215, 156, 20, 0.39), rgba(12, 12, 12, 0.795)), url('./img/services7.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+            
+        }
+        .services-item8{
+            height: 17rem;
+            width: 23%;
+            background-image:linear-gradient(to right bottom, rgba(0, 0, 0, 0.822), rgba(12, 12, 12, 0.192)), url('./img/service8.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .services-item8:hover{
+            background: rgb(215,156,20);
+            background: linear-gradient(0deg, rgba(215, 156, 20, 0.39), rgba(12, 12, 12, 0.795)), url('./img/service8.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+            
+        }
+
+        .services-item-h5{
+            height: 14rem;
+        }
+
+
+        .product{
+          background-image:linear-gradient(to right bottom, rgba(0, 0, 0, 0.822), rgba(12, 12, 12, 0.192)), url('./img/bg-accessories.png');
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          
+        }
+       
+        .product-item{
+          background-color: white;
+          transition: .5s;
+        }
+
+        .product-item:hover{
+          background-color: #ffc107;
+          transition: .5s;
+        }
+        
+        .product-item1{
+          padding: 0;
+          margin: 0;
+          width: 100%;
+          background-color: rgb(0, 0, 0);
+          opacity: 0.89;
+        }
+
+        .product-img{
+          width: 100%;
+          height: 17rem;
+        }
+
+        .gallery{
+          transform: scale(1);
+          transition: .5s;
+        }
+
+        .gallery:hover{
+          transform: scale(1.1);
+          transition: .5s;
+        }
+        .info{
+          background-image: url('./img/slder2.jpg');
+        }
+        .info-img{
+          width: 15rem;
+          height: 15rem;
+        }
+    </style>
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light position-fixed top-0 ">
+        <div class="container-fluid">
+           <div class="row">
+               <div class="col-3 ms-4">
+                    <a class="navbar-brand ms-5" href="#">
+                    <img class="w-50" src="./img/WashU_logo_retina.png" alt="">
+                    </a>
+               </div>
+               <div class="col-8 d-flex aling-items-center">
+                <div class="collapse navbar-collapse w-100" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                      <li class="nav-item mx-2">
+                        <a class="nav-link active text-light fw-bold" aria-current="page" href="#">ANA SAYFA</a>
+                      </li>
+                      <li class="nav-item dropdown mx-2">
+                        <a class="nav-link dropdown-toggle text-light fw-bold" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          HAKKIMIZDA
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li><a class="dropdown-item" href="#">Hakkımızda</a></li>
+                          <li><a class="dropdown-item" href="#">Vizyonumuz</a></li>
+                          <li><a class="dropdown-item" href="#">Kadromuz</a></li>
+                          <li><a class="dropdown-item" href="#">HABERLER</a></li>
+                          <li><a class="dropdown-item" href="#">Sıkça Sorulan Sorular</a></li>
+                          <li><a class="dropdown-item" href="#">Müşteri Yorumları</a></li>
+                        </ul>
+                      </li>
+                      <li class="nav-item mx-2">
+                        <a class="nav-link text-light fw-bold" href="#">ÜRÜNLERİMİZ</a>
+                      </li>
+                      <li class="nav-item mx-2">
+                        <a class="nav-link text-light fw-bold" href="#">HİZMETLER</a>
+                      </li>
+                      <li class="nav-item dropdown mx-2">
+                        <a class="nav-link dropdown-toggle text-light fw-bold" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          MULTIMEDYA
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li><a class="dropdown-item" href="#">FOTO GALERİ</a></li>
+                          <li><a class="dropdown-item" href="#">VİDEOLAR</a></li>
+                        </ul>
+                      </li>
+                      <li class="nav-item mx-2">
+                        <a class="nav-link text-light fw-bold" href="#">REFERANSLAR</a>
+                      </li>
+                      <li class="nav-item dropdown mx-2">
+                        <a class="nav-link dropdown-toggle text-light fw-bold" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          İLETİŞİM
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li><a class="dropdown-item" href="#">İletişim Bilgileri</a></li>
+                          <li><a class="dropdown-item" href="#">İnsan Kaynakları</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                
+               </div>
+           </div>
+        </div>
+      </nav>
+
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./img/slide-1.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./img/slide-2.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      
+      <div class="container-fluid bg-light">
+          <div class="row">
+              <div class="col-4 card">
+                  <div class="row">
+                      <div class="col-6 py-5 ps-5">
+                        <img class="w-100" src="https://www.demoincele.net/ofm328/upload/ektraalan/highlight-product-1.png" alt="">
+                      </div>
+                      <div class="col-6 py-5 ">
+                        <h4 class="fw-bold">LASTİK VE JANT DEĞİŞİMİ</h4>
+                        <p>Her ebatta jant / lastik modellerimiz ve lastik oteli ile hizmetinizdeyiz</p>
+                        <button type="button" class="btn btn-outline-warning rounded-pill text-dark fw-bold px-4 py-2">Devamı</button>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-4 card">
+                <div class="row">
+                    <div class="col-6 py-5 ps-5">
+                      <img class="w-100" src="https://www.demoincele.net/ofm328/upload/ektraalan/highlight-product-2.png" alt="">
+                    </div>
+                    <div class="col-6 py-5 ">
+                      <h4 class="fw-bold">MOTOR YAĞ DEĞİŞİMİ - BAKIMI</h4>
+                      <p>Dünyanın en iyi yağ markaları ve avantajlı fiyatlar ile periyodik bakım için hizmetinizdeyiz</p>
+                      <button type="button" class="btn btn-outline-warning rounded-pill text-dark fw-bold px-4 py-2">Devamı</button>
+                    </div>
+                </div>
+              </div>
+              <div class="col-4 card">
+                <div class="row">
+                    <div class="col-6 py-5 ps-5">
+                      <img class="w-100" src="https://www.demoincele.net/ofm328/upload/ektraalan/highlight-product-3.png" alt="">
+                    </div>
+                    <div class="col-6 py-5 ">
+                      <h4 class="fw-bold">OTO AKSESUAR - YEDEK PARÇA</h4>
+                      <p>Tamamen orijinal ve lisanslı otomobil / pickup aksesuarları ile hizmetinizdeyiz</p>
+                      <button type="button" class="btn btn-outline-warning rounded-pill text-dark fw-bold px-4 py-2">Devamı</button>
+                    </div>
+                </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="container mt-5">
+          <h3 class="fw-bold text-center">Sizin İçin En İyi Hizmet</h3>
+          <div class="row d-flex justify-content-center mt-3">
+              <div class="col-3 me-1 border services-item1">
+                 <div class="row d-flex">
+                     <div class="col-12 services-item-h5">
+                         
+                        </div>
+                     <div class="col-12">
+                        <h5 class="text-light text-center">Demo Hizmet Başlığı</h5>
+                     </div>
+                 </div>
+              </div>
+              <div class="col-3 me-1 border services-item2">
+                <div class="row d-flex">
+                    <div class="col-12 services-item-h5">
+                        
+                       </div>
+                    <div class="col-12">
+                       <h5 class="text-light text-center">Demo Hizmet Başlığı</h5>
+                    </div>
+                </div>
+              </div>
+              <div class="col-3 me-1 border services-item3">
+                <div class="row d-flex">
+                    <div class="col-12 services-item-h5">
+                        
+                       </div>
+                    <div class="col-12">
+                       <h5 class="text-light text-center">Demo Hizmet Başlığı</h5>
+                    </div>
+                </div>
+              </div>
+              <div class="col-3 border services-item4">
+                <div class="row d-flex">
+                    <div class="col-12 services-item-h5">
+                        
+                       </div>
+                    <div class="col-12">
+                       <h5 class="text-light text-center">Demo Hizmet Başlığı</h5>
+                    </div>
+                </div>
+              </div>
+          </div>
+
+
+          <div class="row d-flex justify-content-center mt-3">
+            <div class="col-3 me-1 border services-item5">
+               <div class="row d-flex">
+                   <div class="col-12 services-item-h5">
+                       
+                      </div>
+                   <div class="col-12">
+                      <h5 class="text-light text-center">Demo Hizmet Başlığı</h5>
+                   </div>
+               </div>
+            </div>
+            <div class="col-3 me-1 border services-item6">
+              <div class="row d-flex">
+                  <div class="col-12 services-item-h5">
+                      
+                     </div>
+                  <div class="col-12">
+                     <h5 class="text-light text-center">Demo Hizmet Başlığı</h5>
+                  </div>
+              </div>
+            </div>
+            <div class="col-3 me-1 border services-item7">
+              <div class="row d-flex">
+                  <div class="col-12 services-item-h5">
+                      
+                     </div>
+                  <div class="col-12">
+                     <h5 class="text-light text-center">Demo Hizmet Başlığı</h5>
+                  </div>
+              </div>
+            </div>
+            <div class="col-3 border services-item8">
+              <div class="row d-flex">
+                  <div class="col-12 services-item-h5">
+                      
+                     </div>
+                  <div class="col-12">
+                     <h5 class="text-light text-center">Demo Hizmet Başlığı</h5>
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    
+      <div class="container-fluid product mt-5 pb-5">
+        <h3 class="text-light text-center py-5">YENİ ÜRÜNLERİMİZ</h3>
+
+        <div class="row d-flex justify-content-center">
+          
+          
+          <div class="col-3  border text-light product-item ms-4 me-4">
+            <div class="d-flex justify-content-center">
+              <img class="w-75 my-5 product-img" src="./img/product1.png" alt="">
+            </div>
+            <div class="row">
+              <div class="col-8 bg-danger p-3 d-flex aling-items-center">
+                <a class="text-decoration-none" href="">
+                  <h6 class="text-dark mt-2">Castrol Edge 5w/30</h6>
+                </a>
+              </div>
+              
+              <div class="row py-3 product-item1">
+                <div class="col-6">
+                  <p class="text-danger ms-3 fw-bold fs-4">370 TL</p>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                  <button type="button" class="btn btn-outline-danger rounded-pill text-light fw-bold px-4 py-2">İncele</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-3  border text-light product-item ms-4 me-4">
+            <div class="d-flex justify-content-center">
+              <img class="my-5 product-img" src="./img/product2.png" alt="">
+            </div>
+            <div class="row">
+              <div class="col-8 bg-danger p-3 d-flex aling-items-center">
+                <a class="text-decoration-none" href="">
+                  <h6 class="text-dark mt-2">Mutlu Akü 12V 60Ah</h6>
+                </a>
+              </div>
+              
+              <div class="row py-3 product-item1">
+                <div class="col-6">
+                  <p class="text-danger ms-3 fw-bold fs-4">870 TL</p>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                  <button type="button" class="btn btn-outline-danger rounded-pill text-light fw-bold px-4 py-2">İncele</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-3  border text-light product-item ms-4 me-4">
+            <div class="d-flex justify-content-center">
+              <img class=" my-5 product-img" src="./img/product3.png" alt="">
+            </div>
+            <div class="row">
+              <div class="col-8 bg-danger p-3 d-flex aling-items-center">
+                <a class="text-decoration-none" href="">
+                  <h6 class="text-dark mt-2">6KG Yangın Tüpü</h6>
+                </a>
+              </div>
+              
+              <div class="row py-3 product-item1">
+                <div class="col-6">
+                  <p class="text-danger ms-3 fw-bold fs-4">275 TL</p>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                  <button type="button" class="btn btn-outline-danger rounded-pill text-light fw-bold px-4 py-2">İncele</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row d-flex justify-content-center mt-5">
+          
+          
+          <div class="col-3  border text-light product-item ms-4 me-4">
+            <div class="d-flex justify-content-center">
+              <img class="w-75 my-5 product-img" src="./img/product4.png" alt="">
+            </div>
+            <div class="row">
+              <div class="col-8 bg-danger p-3 d-flex aling-items-center">
+                <a class="text-decoration-none" href="">
+                  <h6 class="text-dark mt-2">Motul Enjektör Temizleyici</h6>
+                </a>
+              </div>
+              
+              <div class="row py-3 product-item1">
+                <div class="col-6">
+                  <p class="text-danger ms-3 fw-bold fs-4">95 TL</p>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                  <button type="button" class="btn btn-outline-danger rounded-pill text-light fw-bold px-4 py-2">İncele</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-3  border text-light product-item ms-4 me-4">
+            <div class="d-flex justify-content-center">
+              <img class="my-5 product-img" src="./img/product5.png" alt="">
+            </div>
+            <div class="row">
+              <div class="col-8 bg-danger p-3 d-flex aling-items-center">
+                <a class="text-decoration-none" href="">
+                  <h6 class="text-dark mt-2">Trafik Seti</h6>
+                </a>
+              </div>
+              
+              <div class="row py-3 product-item1">
+                <div class="col-6">
+                  <p class="text-danger ms-3 fw-bold fs-4">120 TL</p>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                  <button type="button" class="btn btn-outline-danger rounded-pill text-light fw-bold px-4 py-2">İncele</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-3  border text-light product-item ms-4 me-4">
+            <div class="d-flex justify-content-center">
+              <img class=" my-5 product-img" src="./img/product6.png" alt="">
+            </div>
+            <div class="row">
+              <div class="col-8 bg-danger p-3 d-flex aling-items-center">
+                <a class="text-decoration-none" href="">
+                  <h6 class="text-dark mt-2">Mann Filter Çeşitleri</h6>
+                </a>
+              </div>
+              
+              <div class="row py-3 product-item1">
+                <div class="col-6">
+                  <p class="text-danger ms-3 fw-bold fs-4">Bilgi Alınız</p>
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                  <button type="button" class="btn btn-outline-danger rounded-pill text-light fw-bold px-4 py-2">İncele</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-12 d-flex justify-content-center">
+            <button type="button" class="btn btn-outline-danger rounded-pill text-light fw-bold px-5 py-2">Tümünü Görüntüle</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="fw-bold text-center my-5">Firmamızdan Kareler</h2>
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+          <div class="col-2 mx-4">
+            <img class="w-100 gallery" src="./img/gallery1.png" alt="">
+          </div>
+          <div class="col-2 mx-4">
+            <img class="w-100 gallery" src="./img/gallery2.png" alt="">
+          </div>
+          <div class="col-2 mx-4">
+            <img class="w-100 gallery" src="./img/gallery3.png" alt="">
+          </div>
+          <div class="col-2 mx-4">
+            <img class="w-100 h-100 gallery" src="./img/gallery4.jpg" alt="">
+          </div>
+        </div>
+        <div class="row d-flex justify-content-center mt-4 mb-5">
+          <div class="col-2 mx-4">
+            <img class="w-100 gallery" src="./img/gallery5.png" alt="">
+          </div>
+          <div class="col-2 mx-4">
+            <img class="w-100 h-100 gallery" src="./img/gallery6.jpg" alt="">
+          </div>
+          <div class="col-2 mx-4">
+            <img class="w-100 h-100 gallery" src="./img/gallery7.png" alt="">
+          </div>
+          <div class="col-2 mx-4">
+            <img class="w-100 h-100 gallery" src="./img/gallery8.png" alt="">
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid bg-danger">
+        <div class="row d-flex justify-content-center py-5">
+          <div class="col-2 mx-4 py-3">
+            <div class="row d-flex justify-content-center">
+              <div class="col-3 d-flex justify-content-center">
+                <i class="fa-solid fa-car-side fs-1 mt-1 text-light"></i>
+              </div>
+              <div class="col-3 d-flex justify-content-center">
+                <p class="fs-2 text-start text-light">10</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <p class="fw-bold text-light text-center">YILLIK TECRÜBEMİZ</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-2 mx-4 py-3">
+            <div class="row d-flex justify-content-center">
+              <div class="col-4 d-flex justify-content-center">
+                <i class="fa-solid fa-car-side fs-1 mt-1 text-light"></i>
+              </div>
+              <div class="col-4 d-flex justify-content-center">
+                <p class="fs-2 text-start text-light">12504</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <p class="fw-bold text-light text-center ms-3">MUTLU MÜŞTERİLER</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-2 mx-4 py-3">
+            <div class="row d-flex justify-content-center">
+              <div class="col-3 d-flex justify-content-center">
+                <i class="fa-solid fa-car-side fs-1 mt-1 text-light"></i>
+              </div>
+              <div class="col-3 d-flex justify-content-center">
+                <p class="fs-2 text-start text-light">12</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <p class="fw-bold text-light text-center">HİZMET BAŞARI ÖDÜLÜ</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-2 mx-4 py-3">
+            <div class="row d-flex justify-content-center">
+              <div class="col-4 d-flex justify-content-center">
+                <i class="fa-solid fa-car-side fs-1 mt-1 text-light"></i>
+              </div>
+              <div class="col-4 d-flex justify-content-center">
+                <p class="fs-2 text-start text-light">20+</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <p class="fw-bold text-light text-center">UZMAN PERSONEL</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid info">
+        <div class="row py-5">
+          <div class="col-12 py-5">
+            <div class="d-flex justify-content-center pt-5">
+              <img class="info-img rounded-circle" src="./img/counselor-gfabea54d6_1920.jpg" alt="">
+            </div>
+            <div class="pt-4">
+              <p class="fw-bold text-center fs-4">Çok güzel sistemimiz var ve dinamik yapısı ile cezbediyor. Hızlı ve hesaplı hizmet sunuyoruz.</p>
+              <p class="fw-bold text-center fs-4">Kurumsal paketlerde öncü firma olduğumuzu söyleyebilirim.</p>
+              <p class="fw-bold text-center fs-4 text-danger">Sevis Müdürü Murat Çetiner</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid mt-5 mb-5">
+        <div class="row d-flex justify-content-center">
+          <div class="col-2 d-flex align-items-center">
+              <a href="https://www.castrol.com/tr_tr/turkey/home.html" target="_blanc">
+                <img class="w-100" src="./img/castrollogo.png" alt="">
+              </a>
+            </div>
+          <div class="col-2 mx-2">
+            <a href="https://catalog.mann-filter.com/EU/tur" target="_blanck">
+              <img class="w-100" src="./img/mannfilterlogo.png" alt="">
+            </a>
+          </div>
+          <div class="col-2 d-flex align-items-center mx-2">
+            <a href="https://www.motul.com/tr/tr" target="_balnck">
+              <img class="w-100" src="./img/motul-logo.png" alt="">
+            </a>
+          </div>
+          <div class="col-2 d-flex align-items-center mx-2">
+            <a href="https://www.boschaftermarket.com/tr/tr/" target="_blanck">
+              <img class="w-100" src="./img/bosch_logo.png" alt="">
+            </a>
+          </div>
+          <div class="col-2 d-flex align-items-center mx-2 ">
+            <a href="https://www.boschaftermarket.com/tr/tr/" target="_blanck">
+              <img class="w-100" src="./img/mutlulogo.png" alt="">
+            </a>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="container-fluid bg-dark text-secondary">
+        <div class="container py-4 border-bottom border-secondary">
+          <div class="row">
+            <div class="col-4 d-flex justify-content-center py-2">
+              <div class="row">
+                <div class="col-2 d-flex align-items-start justify-content-center align-items-center">
+                  <i class="fa-solid fa-location-dot fs-2"></i>
+                </div>
+                <div class="col-10 d-flex flex-column justify-content-center align-items-center">
+                  <p class="fs-6 ">Vatan Mahallesi, Vatan</p>
+                  <p class="fs-6 ">Sokak No: 00 / 00</p>
+                  <p class="fs-6 ">İstanbul / TÜRKİYE</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 d-flex justify-content-center py-2">
+              <div class="row">
+                <div class="col-2 d-flex align-items-start justify-content-center align-items-center">
+                  <i class="fa-solid fa-mobile-screen fs-2"></i>
+                </div>
+                <div class="col-10 d-flex flex-column justify-content-center align-items-center mt-2">
+                  <p class="fs-6 ">0000 000 00 00</p>
+                  <p class="fs-6 ">0500 000 00 00</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-4 d-flex justify-content-center py-2">
+              <div class="row">
+                <div class="col-2 d-flex align-items-start justify-content-center align-items-center">
+                  <i class="fa-solid fa-envelope fs-2"></i>
+                </div>
+                <div class="col-10 d-flex flex-column justify-content-center align-items-center mt-2">
+                  <p class="fs-6 ">DEMO@DEMO.COM</p>
+                  <p class="fs-6 ">Fax: 0200 000 00 00</p>
+                </div>
+              </div>
+          </div>
+        </div>
+        </div>
+        <div class="container py-5">
+          <div class="row">
+            <div class="col-8">
+              <p>Copyright © Oğuz Adıgüzel Digital</p>
+            </div>
+            <div class="col-4">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>
